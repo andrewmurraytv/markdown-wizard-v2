@@ -1,0 +1,4 @@
+
+/* This file is maintained for backward compatibility */
+/* Please use the new styles in src/styles/* instead */
+@import './styles/index.css';
