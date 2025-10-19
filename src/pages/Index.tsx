@@ -9,6 +9,7 @@ import ConversionDirection from "@/components/conversion/ConversionDirection";
 import DirectionToggle from "@/components/conversion/DirectionToggle";
 import FeaturesSection from "@/components/conversion/FeaturesSection";
 import CitationCleaner from "@/components/conversion/CitationCleaner";
+import MarkdownLinkGenerator from "@/components/conversion/MarkdownLinkGenerator";
 import KitOptinForm from "@/components/conversion/KitOptinForm";
 import Footer from "@/components/conversion/Footer";
 import BottomPromoBar from "@/components/conversion/BottomPromoBar";
@@ -83,6 +84,7 @@ const Index = () => {
       
       <FeaturesSection />
       <CitationCleaner />
+      <MarkdownLinkGenerator />
       <KitOptinForm />
       <Footer />
       <BottomPromoBar />
