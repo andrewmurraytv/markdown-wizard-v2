@@ -11,7 +11,7 @@ const Header = () => {
         <p className="subtitle -mt-3">Always 100% Free. No Signup.</p>
       </div>
       
-      <div className="relative">
+      <div className="flex flex-col items-center">
         <button 
           onClick={() => {
             if (navigator.share) {
@@ -29,24 +29,24 @@ const Header = () => {
         >
           <Bookmark className="h-4 w-4" /> Bookmark this tool
         </button>
-        <div className="mt-4 space-y-2">
+        <div className="mt-4 space-y-2 text-center">
           <a 
             href="#citation-cleaner" 
-            className="block text-sm text-muted-foreground hover:text-primary transition-colors pl-2 border-l-2 border-transparent hover:border-primary"
+            className="block text-sm text-muted-foreground hover:text-primary transition-colors"
           >
-            • Markdown Citation Cleaner
+            Markdown Citation Cleaner
           </a>
           <a 
             href="#link-generator" 
-            className="block text-sm text-muted-foreground hover:text-primary transition-colors pl-2 border-l-2 border-transparent hover:border-primary"
+            className="block text-sm text-muted-foreground hover:text-primary transition-colors"
           >
-            • Markdown Link Generator
+            Markdown Link Generator
           </a>
           <a 
             href="#humanize-text" 
-            className="block text-sm text-muted-foreground hover:text-primary transition-colors pl-2 border-l-2 border-transparent hover:border-primary"
+            className="block text-sm text-muted-foreground hover:text-primary transition-colors"
           >
-            • Humanize Text Tool
+            Humanize Text Tool
           </a>
         </div>
       </div>
