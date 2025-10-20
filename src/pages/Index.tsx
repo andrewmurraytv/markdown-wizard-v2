@@ -14,6 +14,7 @@ import { HumanizeText } from "@/components/conversion/HumanizeText";
 import KitOptinForm from "@/components/conversion/KitOptinForm";
 import Footer from "@/components/conversion/Footer";
 import BottomPromoBar from "@/components/conversion/BottomPromoBar";
+import TopAlertBar from "@/components/conversion/TopAlertBar";
 import { useConversion } from "@/hooks/useConversion";
 
 const Index = () => {
@@ -38,6 +39,7 @@ const Index = () => {
   return (
     <div className="app-container pb-16" style={{ minHeight: '100vh' }}>
       <Toaster />
+      <TopAlertBar />
       <Header />
 
       <DirectionToggle 

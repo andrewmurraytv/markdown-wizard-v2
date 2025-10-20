@@ -3,7 +3,7 @@ import { Bookmark } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="relative z-10 flex flex-col items-center p-4 bg-white border-b border-gray-200">
+    <header className="relative z-10 flex flex-col items-center p-2 bg-white border-b border-gray-200">
       {/* Central title */}
       <div className="text-center mb-4">
         <h1 className="font-caveat text-4xl mb-1 text-accent-primary">Markdown Converter Wizard</h1>
