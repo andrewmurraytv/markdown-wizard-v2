@@ -21,7 +21,7 @@ const MarkdownLinkGenerator = () => {
   } = useMarkdownLinkGenerator();
 
   return (
-    <section className="markdown-link-generator py-12 px-4">
+    <section className="markdown-link-generator py-12 px-4" id="link-generator">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-2 text-center">Markdown Link Generator</h2>
         <p className="text-muted-foreground text-center mb-8">

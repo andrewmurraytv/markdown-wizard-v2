@@ -15,7 +15,7 @@ export const HumanizeText = () => {
   } = useHumanizeText();
 
   return (
-    <div className="w-full max-w-6xl mx-auto mb-8">
+    <div className="w-full max-w-6xl mx-auto mb-8" id="humanize-text">
       <div className="bg-card rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-semibold mb-4">Humanize Text</h2>
         <p className="text-muted-foreground mb-6">

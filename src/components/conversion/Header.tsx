@@ -29,6 +29,17 @@ const Header = () => {
         >
           <Bookmark className="h-4 w-4" /> Bookmark this tool
         </button>
+        <div className="mt-2 text-sm text-gray-600 space-y-1">
+          <a href="#citation-cleaner" className="block hover:text-gray-800 transition-colors">
+            • Markdown Citation Cleaner
+          </a>
+          <a href="#link-generator" className="block hover:text-gray-800 transition-colors">
+            • Markdown Link Generator
+          </a>
+          <a href="#humanize-text" className="block hover:text-gray-800 transition-colors">
+            • Humanize Text Tool
+          </a>
+        </div>
       </div>
     </header>
   );
