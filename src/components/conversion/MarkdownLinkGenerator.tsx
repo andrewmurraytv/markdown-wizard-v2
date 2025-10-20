@@ -72,8 +72,10 @@ const MarkdownLinkGenerator = () => {
                 type="url"
                 placeholder={
                   linkType === "youtube" 
-                    ? "https://www.youtube.com/watch?v=..." 
-                    : "https://example.com"
+                    ? "https://www.youtube.com/watch?v=OZfii9D7o_Q" 
+                    : linkType === "image"
+                    ? "https://giphy.com/gifs/rick-astley-Ju7l5y9osyymQ"
+                    : "https://www.digitalabc.net/affiliate?ref=markdown"
                 }
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
