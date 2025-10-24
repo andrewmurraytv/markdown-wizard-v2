@@ -30,6 +30,42 @@ const Header = () => {
           <Bookmark className="h-4 w-4" /> Bookmark this tool
         </button>
         <div className="mt-4 flex items-center gap-6">
+          {/* Decorative arrow and text */}
+          <div className="relative hidden sm:block" style={{ width: '140px', height: '100px' }}>
+            <svg 
+              viewBox="0 0 140 100" 
+              className="absolute inset-0"
+              style={{ overflow: 'visible' }}
+            >
+              <path
+                d="M 10 15 Q 30 10, 50 20 Q 70 30, 70 50 Q 70 70, 85 75 Q 100 80, 120 75"
+                stroke="#3b82f6"
+                strokeWidth="2.5"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M 115 70 L 120 75 L 115 80"
+                stroke="#3b82f6"
+                strokeWidth="2.5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <div 
+              className="absolute font-caveat text-lg"
+              style={{ 
+                color: '#3b82f6',
+                top: '0px',
+                left: '5px',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              Try our other tools
+            </div>
+          </div>
+          
           <div className="space-y-2 text-center">
             <a 
               href="#citation-cleaner" 
@@ -49,42 +85,6 @@ const Header = () => {
             >
               Humanize Text Tool
             </a>
-          </div>
-          
-          {/* Decorative arrow and text */}
-          <div className="relative hidden sm:block" style={{ width: '120px', height: '80px' }}>
-            <svg 
-              viewBox="0 0 120 80" 
-              className="absolute inset-0"
-              style={{ overflow: 'visible' }}
-            >
-              <path
-                d="M 10 40 Q 30 20, 60 35 T 90 45"
-                stroke="#3b82f6"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-              />
-              <path
-                d="M 85 40 L 90 45 L 85 50"
-                stroke="#3b82f6"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <div 
-              className="absolute font-caveat text-lg"
-              style={{ 
-                color: '#3b82f6',
-                top: '5px',
-                left: '0px',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              Try our other tools
-            </div>
           </div>
         </div>
       </div>
