@@ -49,14 +49,14 @@ const Header = () => {
               style={{ overflow: 'visible', top: '25px' }}
             >
               <path
-                d="M 20 10 Q 40 0, 60 15 Q 80 30, 85 50 Q 90 65, 110 70 Q 125 73, 140 68"
+                d="M 10 20 Q 30 5, 50 15 Q 70 25, 80 45 Q 85 55, 75 65 Q 65 75, 85 75 Q 105 75, 125 70"
                 stroke="#3b82f6"
                 strokeWidth="2.5"
                 fill="none"
                 strokeLinecap="round"
               />
               <path
-                d="M 135 63 L 140 68 L 135 73"
+                d="M 120 66 L 125 70 L 121 75"
                 stroke="#3b82f6"
                 strokeWidth="2.5"
                 fill="none"
