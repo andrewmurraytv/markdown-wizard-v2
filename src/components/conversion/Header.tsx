@@ -31,21 +31,32 @@ const Header = () => {
         </button>
         <div className="mt-4 flex items-center gap-6">
           {/* Decorative arrow and text */}
-          <div className="relative hidden sm:block" style={{ width: '140px', height: '100px' }}>
+          <div className="relative hidden sm:block" style={{ width: '160px', height: '100px' }}>
+            <div 
+              className="absolute font-caveat text-lg"
+              style={{ 
+                color: '#3b82f6',
+                top: '0px',
+                left: '0px',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              Try our other tools
+            </div>
             <svg 
-              viewBox="0 0 140 100" 
-              className="absolute inset-0"
-              style={{ overflow: 'visible' }}
+              viewBox="0 0 160 100" 
+              className="absolute"
+              style={{ overflow: 'visible', top: '25px' }}
             >
               <path
-                d="M 10 15 Q 30 10, 50 20 Q 70 30, 70 50 Q 70 70, 85 75 Q 100 80, 120 75"
+                d="M 20 10 Q 40 0, 60 15 Q 80 30, 85 50 Q 90 65, 110 70 Q 125 73, 140 68"
                 stroke="#3b82f6"
                 strokeWidth="2.5"
                 fill="none"
                 strokeLinecap="round"
               />
               <path
-                d="M 115 70 L 120 75 L 115 80"
+                d="M 135 63 L 140 68 L 135 73"
                 stroke="#3b82f6"
                 strokeWidth="2.5"
                 fill="none"
@@ -53,17 +64,6 @@ const Header = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <div 
-              className="absolute font-caveat text-lg"
-              style={{ 
-                color: '#3b82f6',
-                top: '0px',
-                left: '5px',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              Try our other tools
-            </div>
           </div>
           
           <div className="space-y-2 text-center">
