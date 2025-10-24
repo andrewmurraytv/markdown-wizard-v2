@@ -24,7 +24,7 @@ const TopAlertBar = () => {
           rel="noopener noreferrer"
           className={`text-white hover:text-blue-200 transition-colors duration-200 font-medium ${shouldWiggle ? 'animate-wiggle' : ''}`}
         >
-          Download Comet and Get Perplexity Pro For FREE. Click Here
+          Try the NEW AI Browser from Perplexity and get Perplexity PRO for FREE! Click Here!
         </a>
       </div>
     </div>
