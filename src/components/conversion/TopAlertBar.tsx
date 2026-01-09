@@ -19,12 +19,13 @@ const TopAlertBar = () => {
         style={{ backgroundColor: '#2563eb' }}
       >
         <a 
-          href="https://pplx.ai/andrewmurr96762" 
+          href="https://referworkspace.app.goo.gl/32oU" 
           target="_blank" 
           rel="noopener noreferrer"
-          className={`text-white hover:text-blue-200 transition-colors duration-200 font-medium ${shouldWiggle ? 'animate-wiggle' : ''}`}
+          className={`text-white hover:text-blue-200 transition-colors duration-200 font-medium ${shouldWiggle ? 'animate-wiggle' : ''} flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4`}
         >
-          Try the NEW AI Browser from Perplexity and get Perplexity PRO for FREE! Click Here!
+          <span>Get Gemini Pro for FREE (included with Google Workspace.)</span>
+          <span>Click to Activate Offer.</span>
         </a>
       </div>
     </div>
