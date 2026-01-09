@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { richTextToMarkdown, markdownToRichText, removeCitationMarkers, isHTML, prepareHTMLForConversion } from "../utils/conversion";
 import { validateConversionInput, checkRateLimit, logSecurityEvent } from "../utils/security";
 import { toast } from "sonner";
+import DOMPurify from "dompurify";
 
 export type ConversionDirection = "markdown-to-rich" | "rich-to-markdown";
 
@@ -190,24 +191,24 @@ export const useConversion = () => {
           setTimeout(() => {
             // If the input is a div, update its innerHTML to show the rich text
             if (inputArea.tagName === 'DIV') {
-              // Create a temporary container to sanitize the HTML
-              const tempDiv = document.createElement('div');
-              tempDiv.innerHTML = html;
+              // Sanitize the HTML to prevent XSS attacks
+              const sanitizedHtml = DOMPurify.sanitize(html, {
+                ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 's', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img', 'div', 'span'],
+                ALLOWED_ATTR: ['href', 'title', 'alt', 'src', 'class'],
+                ALLOW_DATA_ATTR: false
+              });
               
-              // Extract only the content we want to display
-              let contentToShow = tempDiv.innerHTML;
-              
-              // Update the input area with the HTML content
-              inputArea.innerHTML = contentToShow;
+              // Update the input area with the sanitized HTML content
+              inputArea.innerHTML = sanitizedHtml;
               
               // Store the text content for the input state
               setInputText(inputArea.innerHTML);
-              setHtmlInput(contentToShow);
+              setHtmlInput(sanitizedHtml);
               
               // Prevent the default paste to avoid double paste
               e.preventDefault();
               
-              console.log("Updated input area with rich content:", contentToShow);
+              console.log("Updated input area with rich content:", sanitizedHtml);
             }
           }, 0);
         }

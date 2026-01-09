@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ConversionDirection } from "@/hooks/useConversion";
+import DOMPurify from "dompurify";
 
 interface EditorPanelProps {
   title: string;
@@ -37,9 +38,13 @@ const EditorPanel = ({
     if (!isInput && divRef.current && direction === "markdown-to-rich") {
       const div = divRef.current;
       
-      // Set initial content if needed
+      // Set initial content if needed, sanitized to prevent XSS
       if (value) {
-        div.innerHTML = value;
+        div.innerHTML = DOMPurify.sanitize(value, {
+          ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 's', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img', 'div', 'span'],
+          ALLOWED_ATTR: ['href', 'title', 'alt', 'src', 'class'],
+          ALLOW_DATA_ATTR: false
+        });
       }
     }
   }, [isInput, value, direction]);
