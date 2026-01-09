@@ -21,6 +21,17 @@ serve(async (req) => {
       );
     }
 
+    // Server-side length validation to prevent abuse
+    const MAX_TEXT_LENGTH = 100000; // 100KB limit matching client-side
+    if (text.length > MAX_TEXT_LENGTH) {
+      return new Response(
+        JSON.stringify({ 
+          error: `Text too large. Maximum ${MAX_TEXT_LENGTH} characters allowed.` 
+        }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     if (!LOVABLE_API_KEY) {
       console.error('LOVABLE_API_KEY not configured');
