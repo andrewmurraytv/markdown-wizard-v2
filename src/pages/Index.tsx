@@ -102,7 +102,8 @@ const Index = () => {
       <KitOptinForm />
       <Footer />
       <BottomPromoBar />
-    </div>
+    </main>
+    </>
   );
 };
 

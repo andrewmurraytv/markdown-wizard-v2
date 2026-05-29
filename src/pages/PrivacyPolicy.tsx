@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +8,15 @@ const PrivacyPolicy = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
+      <Helmet>
+        <title>Privacy Policy — Markdown Wizard</title>
+        <meta name="description" content="Privacy policy for Markdown Wizard: what we collect, how visitor tracking works, and how optional newsletter signups are handled." />
+        <link rel="canonical" href="https://markdown-wizard-v2.lovable.app/privacy" />
+        <meta property="og:title" content="Privacy Policy — Markdown Wizard" />
+        <meta property="og:description" content="How Markdown Wizard handles visitor data and optional newsletter signups." />
+        <meta property="og:url" content="https://markdown-wizard-v2.lovable.app/privacy" />
+      </Helmet>
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <Button 
           variant="ghost" 
