@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/conversion/Header";
@@ -37,7 +38,16 @@ const Index = () => {
   } = useConversion();
 
   return (
-    <div className="app-container pb-16" style={{ minHeight: '100vh' }}>
+    <>
+      <Helmet>
+        <title>Markdown Wizard — Convert Markdown to Rich Text Free</title>
+        <meta name="description" content="Free online Markdown converter. Instantly convert Markdown to rich text or rich text to Markdown. Perfect for ChatGPT, Claude, and Perplexity output. No signup required." />
+        <link rel="canonical" href="https://markdown-wizard-v2.lovable.app/" />
+        <meta property="og:title" content="Markdown Wizard — Convert Markdown to Rich Text Free" />
+        <meta property="og:description" content="Free online Markdown converter. Instantly convert Markdown to rich text or rich text to Markdown." />
+        <meta property="og:url" content="https://markdown-wizard-v2.lovable.app/" />
+      </Helmet>
+      <main className="app-container pb-16" style={{ minHeight: '100vh' }}>
       <Toaster />
       <TopAlertBar />
       <Header />
@@ -92,7 +102,8 @@ const Index = () => {
       <KitOptinForm />
       <Footer />
       <BottomPromoBar />
-    </div>
+    </main>
+    </>
   );
 };
 
