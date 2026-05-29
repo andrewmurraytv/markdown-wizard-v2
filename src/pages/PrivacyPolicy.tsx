@@ -128,7 +128,7 @@ const PrivacyPolicy = () => {
           </section>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +8,15 @@ const TermsOfUse = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
+      <Helmet>
+        <title>Terms of Use — Markdown Wizard</title>
+        <meta name="description" content="Terms of use for Markdown Wizard, the free Markdown to rich text converter. Read the terms that govern using this tool." />
+        <link rel="canonical" href="https://markdown-wizard-v2.lovable.app/terms" />
+        <meta property="og:title" content="Terms of Use — Markdown Wizard" />
+        <meta property="og:description" content="Terms that govern use of the Markdown Wizard converter tool." />
+        <meta property="og:url" content="https://markdown-wizard-v2.lovable.app/terms" />
+      </Helmet>
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <Button 
           variant="ghost" 
