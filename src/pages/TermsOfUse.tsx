@@ -139,7 +139,7 @@ const TermsOfUse = () => {
           </section>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
