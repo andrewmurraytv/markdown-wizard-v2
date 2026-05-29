@@ -1,0 +1,11 @@
+# Markdown Wizard
+
+> Free online tool to convert Markdown to rich text and rich text to Markdown. Designed for cleaning up and reformatting output from AI chatbots like ChatGPT, Claude, and Perplexity.
+
+Markdown Wizard runs entirely in the browser — no signup, no upload, no account required. It also includes a citation cleaner, a Markdown link generator, and a humanize-text tool.
+
+## Pages
+
+- [Markdown Converter](/): Convert between Markdown and rich text, with citation cleaning and plain/rich formatting options.
+- [Privacy Policy](/privacy): How visitor data and optional newsletter signups are handled.
+- [Terms of Use](/terms): Terms governing use of the tool.
