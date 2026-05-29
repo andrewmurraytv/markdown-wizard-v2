@@ -121,7 +121,7 @@ const EditorPanel = ({
           <div 
             id={id}
             ref={divRef}
-            className="rich-editor h-full min-h-[400px] p-4 overflow-auto empty:before:content-[attr(data-placeholder)] empty:before:text-gray-400"
+            className="rich-editor h-full min-h-[400px] p-4 overflow-auto empty:before:content-[attr(data-placeholder)] empty:before:text-muted-foreground"
             contentEditable={true}
             style={{ height: '400px' }}
             onInput={(e) => {
