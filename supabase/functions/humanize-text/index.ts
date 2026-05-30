@@ -6,12 +6,71 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
+// In-memory rate limiter (per edge function instance).
+// Note: not shared across instances; resets on cold start.
+const RATE_LIMIT_MAX = 10; // requests
+const RATE_LIMIT_WINDOW_MS = 60_000; // per 60 seconds
+const rateLimitBuckets = new Map<string, number[]>();
+
+function getClientId(req: Request): string {
+  const fwd = req.headers.get('x-forwarded-for');
+  if (fwd) return fwd.split(',')[0].trim();
+  return req.headers.get('cf-connecting-ip')
+    || req.headers.get('x-real-ip')
+    || 'unknown';
+}
+
+function checkRateLimit(clientId: string): { allowed: boolean; retryAfter: number } {
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW_MS;
+  const timestamps = (rateLimitBuckets.get(clientId) || []).filter(t => t > windowStart);
+
+  if (timestamps.length >= RATE_LIMIT_MAX) {
+    const retryAfter = Math.ceil((timestamps[0] + RATE_LIMIT_WINDOW_MS - now) / 1000);
+    rateLimitBuckets.set(clientId, timestamps);
+    return { allowed: false, retryAfter: Math.max(retryAfter, 1) };
+  }
+
+  timestamps.push(now);
+  rateLimitBuckets.set(clientId, timestamps);
+
+  // Opportunistic cleanup to avoid unbounded growth
+  if (rateLimitBuckets.size > 10_000) {
+    for (const [key, value] of rateLimitBuckets) {
+      const fresh = value.filter(t => t > windowStart);
+      if (fresh.length === 0) rateLimitBuckets.delete(key);
+      else rateLimitBuckets.set(key, fresh);
+    }
+  }
+
+  return { allowed: true, retryAfter: 0 };
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    const clientId = getClientId(req);
+    const { allowed, retryAfter } = checkRateLimit(clientId);
+    if (!allowed) {
+      console.warn(`Rate limit exceeded for ${clientId}`);
+      return new Response(
+        JSON.stringify({
+          error: `Rate limit exceeded. Try again in ${retryAfter}s.`,
+        }),
+        {
+          status: 429,
+          headers: {
+            ...corsHeaders,
+            'Content-Type': 'application/json',
+            'Retry-After': String(retryAfter),
+          },
+        }
+      );
+    }
+
     const { text } = await req.json();
 
     if (!text || typeof text !== 'string') {
