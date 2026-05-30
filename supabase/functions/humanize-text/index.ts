@@ -172,9 +172,8 @@ Return ONLY the humanized text without any explanations or meta-commentary.`;
 
   } catch (error) {
     console.error('Error in humanize-text function:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return new Response(
-      JSON.stringify({ error: errorMessage }),
+      JSON.stringify({ error: 'Internal server error. Please try again later.' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
