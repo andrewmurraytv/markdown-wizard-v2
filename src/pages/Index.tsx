@@ -12,7 +12,7 @@ import FeaturesSection from "@/components/conversion/FeaturesSection";
 import CitationCleaner from "@/components/conversion/CitationCleaner";
 import MarkdownLinkGenerator from "@/components/conversion/MarkdownLinkGenerator";
 import { HumanizeText } from "@/components/conversion/HumanizeText";
-import KitOptinForm from "@/components/conversion/KitOptinForm";
+
 import Footer from "@/components/conversion/Footer";
 import BottomPromoBar from "@/components/conversion/BottomPromoBar";
 import TopAlertBar from "@/components/conversion/TopAlertBar";
@@ -99,7 +99,6 @@ const Index = () => {
       <CitationCleaner />
       <MarkdownLinkGenerator />
       <HumanizeText />
-      <KitOptinForm />
       <Footer />
       <BottomPromoBar />
     </main>

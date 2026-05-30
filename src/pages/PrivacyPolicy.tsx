@@ -43,11 +43,6 @@ const PrivacyPolicy = () => {
               <li><strong>Usage Analytics:</strong> Basic usage statistics such as visit dates and conversion counts to understand how our tool is being used.</li>
             </ul>
 
-            <h3 className="text-xl font-medium text-foreground mb-3 mt-6">Optional Email Signup</h3>
-            <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-              <li><strong>Newsletter Subscription:</strong> If you choose to subscribe to our newsletter via the Kit.com form, your email address will be stored by Kit.com for sending updates and tips.</li>
-              <li><strong>No Account Required:</strong> You can use our markdown conversion tool without creating any account or providing personal information.</li>
-            </ul>
           </section>
 
           <section className="mb-8">
@@ -63,7 +58,6 @@ const PrivacyPolicy = () => {
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
               <li>To provide and improve our markdown conversion service</li>
               <li>To understand usage patterns and optimize performance</li>
-              <li>To send newsletters and updates if you've opted in via Kit.com</li>
             </ul>
           </section>
 
@@ -107,7 +101,6 @@ const PrivacyPolicy = () => {
               Our service uses the following third-party services:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground mt-3">
-              <li><strong>Kit.com:</strong> For newsletter subscriptions (optional)</li>
               <li><strong>Visitor Tracking:</strong> For usage analytics</li>
               <li><strong>Microsoft Clarity:</strong> For website analytics</li>
             </ul>
